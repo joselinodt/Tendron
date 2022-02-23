@@ -4,7 +4,7 @@ public class Cluster
 
     public Cluster(int len, int x, int y)
     {
-        Tendril[] tendy = new Tendril(NUM_STEMS);
+        Tendril[] tendy = new Tendril[NUM_STEMS];
         for(int i = 0; i < NUM_STEMS; i++)
         {
             tendy[i] = new Tendril(len, 0, x, y);
