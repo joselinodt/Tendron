@@ -20,9 +20,11 @@ class Tendril
   public void show()
   {
     //your code here
-    startX = myX;
-    startY = myY;
-    for(int i = 0; i < SEG_LENGTH; i++)
+    int startX = myX;
+    int startY = myY;
+    
+ stroke(255);
+    for(int i = 0; i < numSegments; i++)
     {
       myAngle += Math.random() * 0.4 - 0.2;
       float endX = startX + SEG_LENGTH * (float)(Math.cos(radians((float)myAngle)));
@@ -30,8 +32,10 @@ class Tendril
       line(startX, startY, endX, endY);
       
       startX = endX;
-      startY = endY
+      startY = endY;
 
     }
+    if(myNumSegments > 10)
+      Cluster newC = new Cluter(myNumSegments / 3. startX, startY);
   }
 }
