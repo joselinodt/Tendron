@@ -26,7 +26,7 @@ class Tendril
  stroke(255);
     for(int i = 0; i < numSegments; i++)
     {
-      myAngle += Math.random() * 0.4 - 0.2;
+      myAngle += (float)(Math.random() * 0.4) - 0.2;
       float endX = startX + SEG_LENGTH * (float)(Math.cos(radians((float)myAngle)));
       float endY = startY + SEG_LENGTH * (float)(Math.sin(radians((float)myAngle)));
       line(startX, startY, endX, endY);
