@@ -1,6 +1,6 @@
 class Tendril
 {
-  public final static int SEG_LENGTH = 4; //length of each segment in the tendril
+  public final static int SEG_LENGTH = 5; //length of each segment in the tendril
   private int myNumSegments, myX, myY;
   private double myAngle;
   
@@ -16,26 +16,34 @@ class Tendril
     myAngle = theta;
     myX = x;
     myY = y;
+    
+    
   }
   public void show()
   {
-    //your code here
+    noFill();
     int startX = myX;
     int startY = myY;
     
- stroke(255);
-    for(int i = 0; i < numSegments; i++)
+    if(myNumSegments >= 100)
+      stroke(0,255,0);
+     else if(myNumSegments >= 25)
+       stroke(0,255,0);
+     else if(myNumSegments >= 7)
+       stroke(0,255,0);
+     else 
+       stroke(255,0,0);
+    for(int i = 0; i < myNumSegments; i++)
     {
-      myAngle += (float)(Math.random() * 0.4) - 0.2;
-      float endX = startX + SEG_LENGTH * (float)(Math.cos(radians((float)myAngle)));
-      float endY = startY + SEG_LENGTH * (float)(Math.sin(radians((float)myAngle)));
-      line(startX, startY, endX, endY);
-      
-      startX = endX;
-      startY = endY;
-
+     myAngle += Math.random()*0.4 - 0.2;
+     int endX = startX + (int)(SEG_LENGTH * Math.cos(myAngle));
+     int endY = startY + (int)(SEG_LENGTH * Math.sin(myAngle));
+     line(startX, startY, endX, endY);
+     startX = endX;
+     startY = endY;
     }
-    if(myNumSegments > 10)
-      Cluster newC = new Cluter(myNumSegments / 3. startX, startY);
+    if(myNumSegments > 7){
+      Cluster newC = new Cluster(myNumSegments / 4, startX, startY);
+    }
   }
 }
